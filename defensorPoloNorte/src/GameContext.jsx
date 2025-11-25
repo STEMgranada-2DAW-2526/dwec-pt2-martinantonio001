@@ -4,13 +4,17 @@ export const GameContext = createContext();
 const INITIAL_STATE = {
     damageDealt: 90,
     waveGoal: 100,
-    caramels: 0,
+    caramels: 100,
     DamagePerShot: 1,
     numberWave: 1,
     autoShotsPerSecond: 1,
     PrecioMultiplicadorDisparos:10,
     daniooexplosion:0,
-    precioexplosion:15
+    precioexplosion:15,
+    daniorenos:0,
+    preciorenos:30,
+    danioarbol:0,
+    precioarbol:50,
 }
 
 
@@ -24,12 +28,12 @@ export function GameProvider({ children }) {
         let outputState = state;
 
         if (action.type == 'CLICK_SHOOT') {
-            outputState = { ...state, damageDealt: state.damageDealt + state.DamagePerShot }
+            outputState = { ...state, damageDealt: state.damageDealt + state.DamagePerShot +state.daniooexplosion+state.daniorenos}
         } else if (action.type == 'AUTO_SHOOT') {
             outputState =
             {
                 ...state,
-                damageDealt: state.damageDealt + (state.autoShotsPerSecond * state.DamagePerShot)
+                damageDealt: state.damageDealt + (state.autoShotsPerSecond * state.DamagePerShot)+state.daniooexplosion+state.daniorenos
             }
             if(state.damageDealt>=state.waveGoal){
                 outputState={
@@ -45,26 +49,53 @@ export function GameProvider({ children }) {
 
         }else if(action.type == 'BUY_MULTIPLIER'){
 
-            if(state.caramels>=state.PrecioMultiplicadorDisparos){
+            if(state.caramels>=state.precioexplosion){
 
                 outputState={
                     ...state,
                     autoShotsPerSecond:state.autoShotsPerSecond+1,
-                    caramels:state.caramels-10
+                    caramels:state.caramels-state.PrecioMultiplicadorDisparos
                 }
 
 
             }
 
         }
-        else if(action.type == 'BUY_MULTIPLIER'){
+        else if(action.type == 'BUY_CANON_EXPLOSIVO'){
 
             if(state.caramels>=state.PrecioMultiplicadorDisparos){
 
                 outputState={
                     ...state,
-                    autoShotsPerSecond:state.autoShotsPerSecond+1,
-                    caramels:state.caramels-10
+                    daniooexplosion:state.daniooexplosion+1,
+                    caramels:state.caramels-state.daniooexplosion
+                }
+
+
+            }
+
+        }else if(action.type == 'BUY_RENOS'){
+
+            if(state.caramels>=state.preciorenos){
+
+                outputState={
+                    ...state,
+                    daniorenos:state.daniorenos+5,
+                    caramels:state.caramels-state.preciorenos
+                }
+
+
+            }
+
+        }
+        else if(action.type == 'BUY_ARBOL'){
+
+            if(state.caramels>=state.precioarbol){
+
+                outputState={
+                    ...state,
+                    danioarbol:state.danioarbol+10,
+                    caramels:state.caramels-state.precioarbol
                 }
 
 

@@ -22,6 +22,12 @@ export function UpgradesBoard({ }) {
             <p>Daño Extra:{state.daniooexplosion}</p>
             <p>Precio:{state.precioexplosion}</p>
         </div>
+
+        <div onClick={() => dispatch({ type: 'BUY_RENOS' })}>
+            <p>Renos-Lanzamisiles</p>
+            <p>Daño Extra:{state.daniorenos}</p>
+            <p>Precio:{state.preciorenos}</p>
+        </div>
         </>
     )
 }
