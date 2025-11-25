@@ -4,11 +4,13 @@ export const GameContext = createContext();
 const INITIAL_STATE = {
     damageDealt: 90,
     waveGoal: 100,
-    caramels: 20,
+    caramels: 0,
     DamagePerShot: 1,
     numberWave: 1,
     autoShotsPerSecond: 1,
-    upgrades: [],
+    PrecioMultiplicadorDisparos:10,
+    daniooexplosion:0,
+    precioexplosion:15
 }
 
 
@@ -43,7 +45,30 @@ export function GameProvider({ children }) {
 
         }else if(action.type == 'BUY_MULTIPLIER'){
 
+            if(state.caramels>=state.PrecioMultiplicadorDisparos){
 
+                outputState={
+                    ...state,
+                    autoShotsPerSecond:state.autoShotsPerSecond+1,
+                    caramels:state.caramels-10
+                }
+
+
+            }
+
+        }
+        else if(action.type == 'BUY_MULTIPLIER'){
+
+            if(state.caramels>=state.PrecioMultiplicadorDisparos){
+
+                outputState={
+                    ...state,
+                    autoShotsPerSecond:state.autoShotsPerSecond+1,
+                    caramels:state.caramels-10
+                }
+
+
+            }
 
         }
         return outputState;
