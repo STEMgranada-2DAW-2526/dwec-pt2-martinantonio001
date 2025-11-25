@@ -3,16 +3,21 @@ import { useState,useReducer,useContext } from 'react'
 export const GameContext = createContext();
 
 const INITIAL_STATE = {
-  
+  damageDealt:0,
+  waveGoal:100,
+  caramels:20,
+  DamagePerShot:1,
+  autoShotsPerSecond:1,
+  upgrades:[],
 }
 
 
 function GameProvider() {
 
-    const [state, dispatch] = useReducer(cookieReducer, INITIAL_STATE)
+    const [state, dispatch] = useReducer(GameReducer, INITIAL_STATE)
     return (
         <>
-        <GameContext.Provider value={{  }}>
+        <GameContext.Provider value={{ GameReducer }}>
                 {children}
             </GameContext.Provider>
         </>
