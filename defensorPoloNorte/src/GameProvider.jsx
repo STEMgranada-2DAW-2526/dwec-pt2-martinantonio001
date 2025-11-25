@@ -1,8 +1,9 @@
 import { useState,useReducer,useContext } from 'react'
 
-import './App.css'
+export const RuletaContext = createContext();
 
-function App() {
+
+function GameProvider() {
   
 
   return (
@@ -11,5 +12,3 @@ function App() {
     </>
   )
 }
-
-export default App
