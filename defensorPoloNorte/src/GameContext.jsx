@@ -65,7 +65,7 @@ export function GameProvider({ children }) {
                 outputState={
                     ...state,
                     daniooexplosion:state.daniooexplosion+1,
-                    caramels:state.caramels-state.daniooexplosion
+                    caramels:state.caramels-state.precioexplosion
                 }
 
 
