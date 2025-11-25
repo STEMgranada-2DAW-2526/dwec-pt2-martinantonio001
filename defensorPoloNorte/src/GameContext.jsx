@@ -28,18 +28,18 @@ export function GameProvider({ children }) {
         let outputState = state;
 
         if (action.type == 'CLICK_SHOOT') {
-            outputState = { ...state, damageDealt: state.damageDealt + state.DamagePerShot +state.daniooexplosion+state.daniorenos}
+            outputState = { ...state, damageDealt: state.damageDealt + state.DamagePerShot +state.daniooexplosion+state.daniorenos+state.danioarbol}
         } else if (action.type == 'AUTO_SHOOT') {
             outputState =
             {
                 ...state,
-                damageDealt: state.damageDealt + (state.autoShotsPerSecond * state.DamagePerShot)+state.daniooexplosion+state.daniorenos
+                damageDealt: state.damageDealt + (state.autoShotsPerSecond * state.DamagePerShot)+state.daniooexplosion+state.daniorenos+state.danioarbol
             }
             if(state.damageDealt>=state.waveGoal){
                 outputState={
                     ...state,
                     damageDealt:0,
-                    waveGoal:state.waveGoal*1.1,
+                    waveGoal:Math.round(state.waveGoal*1.1,2),
                     caramels:state.caramels+10
                 }
 
