@@ -1,13 +1,11 @@
 import { useContext } from 'react';
 import { GameContext } from './GameContext';
 import canion_turron from "./assets/canion_turron.png";
-import cursorImg from "./assets/cursor.png";
-import grandmaImg from "./assets/abuela.png";
-import multiplierImg from "./assets/corre.png";
+
 
 export function Game({ }) {
 
-    const {GameReducer,state } = useContext(GameContext);
+    const {GameReducer,state,dispatch } = useContext(GameContext);
     return (
         <div>
             <div>Daño de oleada:{state.damageDealt}/{state.waveGoal}</div>
@@ -16,7 +14,7 @@ export function Game({ }) {
 
             <br />
 
-            <button >
+            <button  onClick={() => dispatch({ type: 'CLICK_SHOOT' })}>
                 <img className='img-fluid' src={canion_turron} />
             </button>
         </div>
