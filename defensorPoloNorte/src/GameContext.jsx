@@ -7,6 +7,7 @@ const INITIAL_STATE = {
   waveGoal:100,
   caramels:20,
   DamagePerShot:1,
+  numberWave:1,
   autoShotsPerSecond:1,
   upgrades:[],
 }
@@ -23,8 +24,8 @@ export function GameProvider({ children }) {
     const [state, dispatch] = useReducer(GameReducer, INITIAL_STATE)
     return (
         <>
-            <GameContext.Provider value={{ GameReducer }}>
-
+            <GameContext.Provider value={{ GameReducer,state }}>
+                {children}
             </GameContext.Provider>
         </>
     )

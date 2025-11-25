@@ -1,9 +1,9 @@
 import { useState,useReducer,useContext } from 'react'
 import { GameProvider } from './GameContext.jsx';
-import { GameContext } from './GameContext.jsx';
+import { Game } from './Game.jsx';
+
 
 function App() {
-  // const {GameReducer} = useContext(GameContext);
 
   return (
     <>
