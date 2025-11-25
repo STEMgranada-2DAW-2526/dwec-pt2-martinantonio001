@@ -13,7 +13,7 @@ const INITIAL_STATE = {
 
 function GameReducer(){
 
-    
+
 }
 
 
@@ -24,7 +24,7 @@ export function GameProvider({ children }) {
     return (
         <>
             <GameContext.Provider value={{ GameReducer }}>
-                <div>Daño de oleada:{state.damageDealt}/{state.waveGoal}</div>   
+                {children}
             </GameContext.Provider>
         </>
     )
