@@ -1,6 +1,6 @@
 import { useContext } from 'react';
 import { GameContext } from './GameContext';
-import canion_turron from "./assets/canion_turron.png";
+import torre from "./assets/torre.png";
 import caramelo_sangriento from "./assets/caramelo_sangriento.png";
 
 
@@ -18,7 +18,8 @@ export function Game({ }) {
             <br />
 
             <button  onClick={() => dispatch({ type: 'CLICK_SHOOT' })}>
-                <img className='img-fluid' src={canion_turron} />
+                <img className='img-fluid' src={torre} />
+                <p>disparar</p>
             </button>
         </div>
     )
