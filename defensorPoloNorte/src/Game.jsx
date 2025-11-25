@@ -5,7 +5,7 @@ import canion_turron from "./assets/canion_turron.png";
 
 export function Game({ }) {
 
-    const {GameReducer,state,dispatch } = useContext(GameContext);
+    const {state,dispatch } = useContext(GameContext);
     return (
         <div>
             <div>Daño de oleada:{state.damageDealt}/{state.waveGoal}</div>
