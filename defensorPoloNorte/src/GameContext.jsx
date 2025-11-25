@@ -2,9 +2,9 @@ import React, { createContext, useReducer, useEffect, useState } from 'react';
 
 export const GameContext = createContext();
 const INITIAL_STATE = {
-    damageDealt: 90,
+    damageDealt: 100,
     waveGoal: 100,
-    caramels: 100,
+    caramels: 20,
     DamagePerShot: 1,
     numberWave: 1,
     autoShotsPerSecond: 1,
@@ -39,8 +39,9 @@ export function GameProvider({ children }) {
                 outputState={
                     ...state,
                     damageDealt:0,
-                    waveGoal:Math.round(state.waveGoal*1.1,2),
-                    caramels:state.caramels+10
+                    waveGoal:Math.round(state.waveGoal*1.1),
+                    caramels:state.caramels+10,
+                    numberWave:state.numberWave+1
                 }
 
             }
