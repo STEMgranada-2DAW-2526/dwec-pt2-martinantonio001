@@ -2,7 +2,7 @@ import React, { createContext, useReducer, useEffect, useState } from 'react';
 
 export const GameContext = createContext();
 const INITIAL_STATE = {
-    damageDealt: 0,
+    damageDealt: 90,
     waveGoal: 100,
     caramels: 20,
     DamagePerShot: 1,
@@ -29,16 +29,19 @@ export function GameProvider({ children }) {
                 ...state,
                 damageDealt: state.damageDealt + (state.autoShotsPerSecond * state.DamagePerShot)
             }
-            if(state.damageDealt>=waveGoal){
+            if(state.damageDealt>=state.waveGoal){
                 outputState={
                     ...state,
                     damageDealt:0,
-
-
-
+                    waveGoal:state.waveGoal*1.1,
+                    caramels:state.caramels+10
                 }
 
             }
+
+
+
+        }else if(action.type == 'BUY_MULTIPLIER'){
 
 
 
