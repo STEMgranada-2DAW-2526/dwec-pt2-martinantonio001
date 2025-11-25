@@ -1,5 +1,5 @@
 import { useState,useReducer,useContext } from 'react'
-import { GameProvider } from './GameContext';
+import { GameProvider } from './GameContext.jsx';
 
 
 function Game() {
@@ -8,7 +8,7 @@ function Game() {
   return (
     <>
       <GameProvider>
-        
+
 
       </GameProvider>
     </>

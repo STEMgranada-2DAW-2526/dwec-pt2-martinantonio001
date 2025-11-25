@@ -1,4 +1,4 @@
-import { useState,useReducer,useContext } from 'react'
+import React, { createContext, useReducer, useEffect, useState } from 'react';
 
 export const GameContext = createContext();
 
@@ -11,16 +11,23 @@ const INITIAL_STATE = {
   upgrades:[],
 }
 
+function GameReducer(){
 
-function GameProvider() {
+    
+}
+
+
+
+export function GameProvider({ children }) {
 
     const [state, dispatch] = useReducer(GameReducer, INITIAL_STATE)
     return (
         <>
-        <GameContext.Provider value={{ GameReducer }}>
-                {children}
+            <GameContext.Provider value={{ GameReducer }}>
+                <div>Daño de oleada:{state.damageDealt}/{state.waveGoal}</div>   
             </GameContext.Provider>
         </>
     )
     
 }
+
